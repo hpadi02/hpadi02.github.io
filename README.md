@@ -1,2 +1,2 @@
 # hpadi02.github.io
-Personal portfolio website built with Astro and deployed on GitHub Pages
+Personal portfolio website built and deployed on GitHub Pages
