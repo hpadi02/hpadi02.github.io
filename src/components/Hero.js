@@ -1,27 +1,24 @@
 import { useState, useEffect, useRef } from "react";
-import HeroGraphic from "./HeroGraphic";
+import ParticleField from "./ParticleField";
 import "./Hero.css";
 
 const ROLES = [
   "Software Engineer",
   "AI Developer",
   "Full Stack Builder",
-  "CS Graduate",
+  "iOS Developer",
 ];
-
-const TYPE_SPEED = 70;
-const DELETE_SPEED = 40;
-const PAUSE_MS = 1800;
 
 function Hero() {
   const [mouse, setMouse] = useState({
-    x: typeof window !== "undefined" ? window.innerWidth / 2 : 0,
-    y: typeof window !== "undefined" ? window.innerHeight / 2 : 0,
+    x: typeof window !== "undefined" ? window.innerWidth / 2 : 760,
+    y: typeof window !== "undefined" ? window.innerHeight / 2 : 400,
   });
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
   const rafRef = useRef(null);
+  const roleRef = useRef(null);
+  const idxRef = useRef(0);
+  const charRef = useRef(0);
+  const dirRef = useRef("typing");
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -30,7 +27,6 @@ function Hero() {
         setMouse({ x: e.clientX, y: e.clientY });
       });
     };
-
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
@@ -39,34 +35,43 @@ function Hero() {
   }, []);
 
   useEffect(() => {
-    const currentRole = ROLES[roleIndex];
-    let timeout;
+    let timer;
+    const tick = () => {
+      const el = roleRef.current;
+      if (!el) return;
+      const word = ROLES[idxRef.current];
+      const speed = dirRef.current === "typing" ? 70 : 40;
 
-    if (!isDeleting && displayText === currentRole) {
-      timeout = setTimeout(() => setIsDeleting(true), PAUSE_MS);
-    } else if (isDeleting && displayText === "") {
-      timeout = setTimeout(() => {
-        setIsDeleting(false);
-        setRoleIndex((prev) => (prev + 1) % ROLES.length);
-      }, 400);
-    } else {
-      const nextLength = isDeleting
-        ? displayText.length - 1
-        : displayText.length + 1;
-      const nextText = currentRole.slice(0, nextLength);
-      timeout = setTimeout(() => {
-        setDisplayText(nextText);
-      }, isDeleting ? DELETE_SPEED : TYPE_SPEED);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, roleIndex]);
+      if (dirRef.current === "typing") {
+        charRef.current++;
+        el.textContent = word.slice(0, charRef.current);
+        if (charRef.current === word.length) {
+          dirRef.current = "pausing";
+          timer = setTimeout(() => {
+            dirRef.current = "deleting";
+            tick();
+          }, 1800);
+          return;
+        }
+      } else if (dirRef.current === "deleting") {
+        charRef.current--;
+        el.textContent = word.slice(0, charRef.current);
+        if (charRef.current === 0) {
+          idxRef.current = (idxRef.current + 1) % ROLES.length;
+          dirRef.current = "typing";
+        }
+      }
+      timer = setTimeout(tick, speed);
+    };
+    timer = setTimeout(tick, 600);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section className="hero" id="hero">
       <div className="hero-content">
-        <p className="hero-role" aria-live="polite">
-          <span className="role-text">{displayText}</span>
+        <p className="hero-role">
+          <span ref={roleRef} className="role-text" />
           <span className="cursor" aria-hidden="true">
             |
           </span>
@@ -105,7 +110,7 @@ function Hero() {
         </div>
       </div>
 
-      <HeroGraphic mouseX={mouse.x} mouseY={mouse.y} />
+      <ParticleField mouseX={mouse.x} mouseY={mouse.y} />
     </section>
   );
 }
