@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import HeroGraphic from "./HeroGraphic";
 import "./Hero.css";
 
 const ROLES = [
@@ -43,54 +44,48 @@ function Hero() {
 
   return (
     <section className="hero" id="hero">
-      <div className="hero__orb hero__orb--1" aria-hidden="true" />
-      <div className="hero__orb hero__orb--2" aria-hidden="true" />
-
-      <div className="hero__content">
-        <h1 className="hero__name">
-          <span className="hero__name-line hero__animate hero__animate--d1">
-            Hugo
+      <div className="hero-content">
+        <p className="hero-role" aria-live="polite">
+          <span className="role-text">{displayText}</span>
+          <span className="cursor" aria-hidden="true">
+            |
           </span>
-          <span className="hero__name-line hero__name-line--outline hero__animate hero__animate--d2">
-            Padilla
-          </span>
-        </h1>
-
-        <p
-          className="hero__typewriter hero__animate hero__animate--d3"
-          aria-live="polite"
-        >
-          <span className="hero__typewriter-text">{displayText}</span>
-          <span className="hero__cursor" aria-hidden="true" />
         </p>
 
-        <p className="hero__bio hero__animate hero__animate--d4">
+        <h1 className="hero-name">
+          Hugo
+          <span className="name-outline">Padilla</span>
+        </h1>
+
+        <p className="hero-bio">
           CS senior at Texas A&amp;M San Antonio. I build full stack apps, AI
           pipelines, and iOS tools. Some of them have won things.
         </p>
 
-        <div className="hero__actions hero__animate hero__animate--d5">
-          <a href="#projects" className="hero__btn hero__btn--primary">
+        <div className="hero-actions">
+          <a href="#projects" className="btn-primary">
             View Projects
           </a>
           <a
             href="https://github.com/hpadi02"
             target="_blank"
             rel="noopener noreferrer"
-            className="hero__btn hero__btn--ghost"
+            className="btn-ghost"
           >
-            GitHub
+            GitHub ↗
           </a>
           <a
             href="https://www.linkedin.com/in/hugo-padilla-cuadros-tamusa/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hero__btn hero__btn--ghost"
+            className="btn-ghost"
           >
-            LinkedIn
+            LinkedIn ↗
           </a>
         </div>
       </div>
+
+      <HeroGraphic />
     </section>
   );
 }

@@ -105,23 +105,3 @@ img {
     opacity: 0;
   }
 }
-
-@keyframes floatOrb {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(24px, -18px);
-  }
-}
-
-@keyframes floatOrb2 {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-20px, 22px);
-  }
-}
