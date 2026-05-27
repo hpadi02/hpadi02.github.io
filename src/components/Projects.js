@@ -90,10 +90,6 @@ function Projects() {
         <div className="projects__grid">
           {filtered.map((project) => (
             <article key={project.id} className="projects__card">
-              {project.highlight && (
-                <span className="projects__featured">Featured</span>
-              )}
-
               <div className="projects__card-header">
                 <span className="projects__card-icon">
                   <CodeIcon />

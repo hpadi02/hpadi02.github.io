@@ -79,14 +79,15 @@
 .hero__name {
   display: flex;
   flex-direction: column;
-  line-height: 0.92;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   margin-bottom: 1rem;
 }
 
 .hero__name-line {
   font-family: var(--font-display);
-  font-size: clamp(4.5rem, 14vw, 9rem);
-  letter-spacing: 0.02em;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 700;
   color: var(--white);
 }
 

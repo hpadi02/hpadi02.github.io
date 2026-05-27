@@ -23,11 +23,7 @@ const TIMELINE = [
   },
 ];
 
-const BADGES = [
-  "No sponsorship required",
-  "San Antonio TX",
-  "Open to remote",
-];
+const BADGES = ["San Antonio, TX", "Open to remote"];
 
 function About() {
   return (

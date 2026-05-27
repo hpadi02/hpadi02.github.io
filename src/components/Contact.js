@@ -3,17 +3,17 @@ import "./Contact.css";
 const CONTACT_ROWS = [
   {
     label: "Email",
-    value: "hpadi02@gmail.com",
-    href: "mailto:hpadi02@gmail.com",
+    value: "hugop4420@gmail.com",
+    href: "mailto:hugop4420@gmail.com",
   },
   {
     label: "LinkedIn",
-    value: "hugopadillacuadros",
-    href: "https://linkedin.com/in/hugopadillacuadros",
+    value: "Hugo Padilla Cuadros",
+    href: "https://www.linkedin.com/in/hugo-padilla-cuadros-tamusa/",
   },
   {
     label: "GitHub",
-    value: "hpadi02",
+    value: "@hpadi02",
     href: "https://github.com/hpadi02",
   },
 ];

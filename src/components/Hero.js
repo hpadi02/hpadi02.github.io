@@ -93,7 +93,7 @@ function Hero() {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/in/hugopadillacuadros"
+            href="https://www.linkedin.com/in/hugo-padilla-cuadros-tamusa/"
             target="_blank"
             rel="noopener noreferrer"
             className="hero__btn hero__btn--ghost"
