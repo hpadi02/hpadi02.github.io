@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import HeroGraphic from "./HeroGraphic";
 import "./Hero.css";
 
@@ -14,9 +14,29 @@ const DELETE_SPEED = 40;
 const PAUSE_MS = 1800;
 
 function Hero() {
+  const [mouse, setMouse] = useState({
+    x: typeof window !== "undefined" ? window.innerWidth / 2 : 0,
+    y: typeof window !== "undefined" ? window.innerHeight / 2 : 0,
+  });
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const rafRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        setMouse({ x: e.clientX, y: e.clientY });
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     const currentRole = ROLES[roleIndex];
@@ -85,7 +105,7 @@ function Hero() {
         </div>
       </div>
 
-      <HeroGraphic />
+      <HeroGraphic mouseX={mouse.x} mouseY={mouse.y} />
     </section>
   );
 }

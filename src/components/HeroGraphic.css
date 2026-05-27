@@ -6,13 +6,24 @@
   align-items: center;
   justify-content: center;
   min-height: 500px;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: -100px;
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.15s ease;
 }
 
 .hero-graphic-svg {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 500px;
   height: auto;
-  opacity: 0.85;
+  opacity: 0.9;
   animation: graphicFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
 }
 
@@ -22,7 +33,7 @@
     transform: translateX(20px);
   }
   to {
-    opacity: 0.85;
+    opacity: 0.9;
     transform: translateX(0);
   }
 }
