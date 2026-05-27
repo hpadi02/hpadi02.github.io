@@ -45,42 +45,31 @@ function Hero() {
     <section className="hero" id="hero">
       <div className="hero__orb hero__orb--1" aria-hidden="true" />
       <div className="hero__orb hero__orb--2" aria-hidden="true" />
-      <div className="hero__grid" aria-hidden="true" />
 
       <div className="hero__content">
-        <div className="hero__eyebrow hero__animate" style={{ animationDelay: "0.1s" }}>
-          <span className="hero__eyebrow-line" />
-          <span>Available for new grad roles</span>
-        </div>
-
         <h1 className="hero__name">
-          <span className="hero__name-line hero__animate" style={{ animationDelay: "0.2s" }}>
+          <span className="hero__name-line hero__animate hero__animate--d1">
             Hugo
           </span>
-          <span
-            className="hero__name-line hero__name-line--outline hero__animate"
-            style={{ animationDelay: "0.3s" }}
-          >
+          <span className="hero__name-line hero__name-line--outline hero__animate hero__animate--d2">
             Padilla
           </span>
         </h1>
 
         <p
-          className="hero__typewriter hero__animate"
-          style={{ animationDelay: "0.4s" }}
+          className="hero__typewriter hero__animate hero__animate--d3"
           aria-live="polite"
         >
           <span className="hero__typewriter-text">{displayText}</span>
           <span className="hero__cursor" aria-hidden="true" />
         </p>
 
-        <p className="hero__bio hero__animate" style={{ animationDelay: "0.5s" }}>
-          CS senior at Texas A&amp;M San Antonio graduating May 2026. I build full
-          stack apps and AI systems, from hackathon winners to production style
-          backends. Open to software engineering, AI, and data roles.
+        <p className="hero__bio hero__animate hero__animate--d4">
+          CS senior at Texas A&amp;M San Antonio. I build full stack apps, AI
+          pipelines, and iOS tools. Some of them have won things.
         </p>
 
-        <div className="hero__actions hero__animate" style={{ animationDelay: "0.6s" }}>
+        <div className="hero__actions hero__animate hero__animate--d5">
           <a href="#projects" className="hero__btn hero__btn--primary">
             View Projects
           </a>
@@ -101,27 +90,6 @@ function Hero() {
             LinkedIn
           </a>
         </div>
-
-        <div className="hero__stats hero__animate" style={{ animationDelay: "0.7s" }}>
-          <div className="hero__stat">
-            <span className="hero__stat-num">3.84</span>
-            <span className="hero__stat-label">GPA</span>
-          </div>
-          <span className="hero__stat-divider" aria-hidden="true" />
-          <div className="hero__stat">
-            <span className="hero__stat-num">6+</span>
-            <span className="hero__stat-label">Projects</span>
-          </div>
-          <span className="hero__stat-divider" aria-hidden="true" />
-          <div className="hero__stat">
-            <span className="hero__stat-num">AI</span>
-            <span className="hero__stat-label">Certificate</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="hero__scroll" aria-hidden="true">
-        <span className="hero__scroll-line" />
       </div>
     </section>
   );

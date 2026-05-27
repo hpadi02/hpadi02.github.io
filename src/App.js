@@ -19,7 +19,7 @@ function App() {
       </main>
       <footer className="footer">
         <div className="footer__inner">
-          <a href="#" className="footer__logo">
+          <a href="#hero" className="footer__logo">
             HP<span className="footer__logo-dot">.</span>
           </a>
           <p className="footer__text">

@@ -30,20 +30,16 @@ function About() {
     <section className="about section" id="about">
       <div className="section__inner about__grid">
         <div className="about__text">
-          <h2 className="section__heading">
+          <h2 className="about__heading">
             Builder. Engineer.{" "}
             <span className="outline-text">Problem Solver.</span>
           </h2>
           <p className="about__paragraph">
             I am a computer science senior at Texas A&amp;M San Antonio with a
-            3.84 GPA and hands on experience across full stack web, mobile, and
-            AI. I have shipped hackathon winners, open source security tooling,
-            and course projects that go beyond the minimum requirements.
-          </p>
-          <p className="about__paragraph">
-            I am a U.S. citizen authorized to work in the United States and do
-            not require visa sponsorship. I am open to relocation and remote
-            roles starting after graduation in May 2026.
+            3.84 GPA. My work spans full stack web, iOS development, AI systems,
+            and security tooling. I have shipped projects from hackathon stages
+            to production style architectures, usually in small teams where everyone
+            builds everything.
           </p>
           <div className="about__badges">
             {BADGES.map((badge) => (

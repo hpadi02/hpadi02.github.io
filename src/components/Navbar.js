@@ -30,7 +30,7 @@ function Navbar() {
   return (
     <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
       <div className="navbar__inner">
-        <a href="#" className="navbar__logo" onClick={closeMenu}>
+        <a href="#hero" className="navbar__logo" onClick={closeMenu}>
           HP<span className="navbar__logo-dot">.</span>
         </a>
 

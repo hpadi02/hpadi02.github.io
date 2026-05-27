@@ -5,16 +5,19 @@ const CONTACT_ROWS = [
     label: "Email",
     value: "hugop4420@gmail.com",
     href: "mailto:hugop4420@gmail.com",
+    external: false,
   },
   {
     label: "LinkedIn",
     value: "Hugo Padilla Cuadros",
     href: "https://www.linkedin.com/in/hugo-padilla-cuadros-tamusa/",
+    external: true,
   },
   {
     label: "GitHub",
     value: "@hpadi02",
     href: "https://github.com/hpadi02",
+    external: true,
   },
 ];
 
@@ -22,13 +25,12 @@ function Contact() {
   return (
     <section className="contact section" id="contact">
       <div className="section__inner contact__inner">
-        <h2 className="section__heading">
+        <h2 className="contact__heading">
           Let&apos;s <span className="outline-text">Connect</span>
         </h2>
         <p className="contact__intro">
-          I am graduating in May 2026 and actively looking for new grad software
-          engineering, AI, and data roles. U.S. work authorized with no
-          sponsorship required.
+          Questions about my work or a project? Reach out by email or on
+          LinkedIn.
         </p>
 
         <ul className="contact__list">
@@ -37,10 +39,8 @@ function Contact() {
               <span className="contact__label">{row.label}</span>
               <a
                 href={row.href}
-                target={row.href.startsWith("http") ? "_blank" : undefined}
-                rel={
-                  row.href.startsWith("http") ? "noopener noreferrer" : undefined
-                }
+                target={row.external ? "_blank" : undefined}
+                rel={row.external ? "noopener noreferrer" : undefined}
                 className="contact__value"
               >
                 {row.value}
